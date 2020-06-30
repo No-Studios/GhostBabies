@@ -6,7 +6,10 @@ public class AimController : MonoBehaviour
 {
 
     Ray ray;
-    RaycastHit2D hitData; 
+    RaycastHit2D hitData;
+
+    public GameObject baby;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class AimController : MonoBehaviour
                 Debug.Log(hit.collider.gameObject.name);
                 if(hit.collider.tag == "Ghost")
                 {
+                    spawnBaby(hit);
                     Destroy(hit.collider.gameObject);
                 }
                 //hit.collider.attachedRigidbody.AddForce(Vector2.up);
@@ -36,4 +40,15 @@ public class AimController : MonoBehaviour
         }
 
     }
+
+    void spawnBaby(RaycastHit2D hit)
+    {
+
+        Debug.Log(hit.transform.position.x);
+        Instantiate(baby, hit.transform.position, Quaternion.identity);
+
+        Debug.Log("weeee");
+    }
+
+
 }
