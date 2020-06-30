@@ -22,7 +22,7 @@ public class gunfire : MonoBehaviour
         {
             
             AudioClip clip = GetRandomClip();
-            audSor.pitch = (Random.Range(0.9f, 1.1f));
+            audSor.pitch = (Random.Range(0.95f, 1.05f));
             audSor.PlayOneShot(clip);
             gunAnim.SetTrigger("fire");
             //gunAnim.ResetTrigger("fire");
