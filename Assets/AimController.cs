@@ -44,10 +44,10 @@ public class AimController : MonoBehaviour
     void spawnBaby(RaycastHit2D hit)
     {
 
-        Debug.Log(hit.transform.position.x);
+        
         Instantiate(baby, hit.transform.position, Quaternion.identity);
 
-        Debug.Log("weeee");
+       
     }
 
 
