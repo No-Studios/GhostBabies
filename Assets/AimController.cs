@@ -12,13 +12,18 @@ public class AimController : MonoBehaviour
 
     public Score scoreTracker;
 
+
+    [SerializeField]
+    private AudioClip[] clips = null;
+    private AudioSource audSor;
+
     [SerializeField]
     GhostSpanwer gs; 
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        audSor = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,9 +58,15 @@ public class AimController : MonoBehaviour
 
         
         Instantiate(GameManager.instance.BabyPrefabs[gs.randomGhost], hit.transform.position, Quaternion.identity);
+        AudioClip clip = GetRandomClip();
+        audSor.pitch = (Random.Range(0.95f, 1.05f));
+        audSor.PlayOneShot(clip);
 
-       
+
     }
-
+    private AudioClip GetRandomClip()
+    {
+        return clips[UnityEngine.Random.Range(0, clips.Length)];
+    }
 
 }
