@@ -16,6 +16,7 @@ public class GhostSpanwer : MonoBehaviour
     bool isSpawning = true;
     public GameObject[] enemies;
     public Ghost.movement_type[] movement_Types = { Ghost.movement_type.NORMAL, Ghost.movement_type.WAVE };
+    public int randomGhost; 
     int enemyIndex = 0;
 
 
@@ -31,7 +32,8 @@ public class GhostSpanwer : MonoBehaviour
 
             yield return new WaitForSeconds(seconds);
 
-            GameObject g = Instantiate(enemies[enemyIndex], new Vector3(Random.Range(leftBoundPos.x, rightBoundPos.x), leftBoundPos.y, 0), transform.rotation);
+            randomGhost = Random.Range(0, GameManager.instance.GhostPrefabs.Length);
+            GameObject g = Instantiate(GameManager.instance.GhostPrefabs[randomGhost], new Vector3(Random.Range(leftBoundPos.x, rightBoundPos.x), leftBoundPos.y, 0), transform.rotation);
             Ghost ghost = g.GetComponent<Ghost>();
             ghost.movement_Type = movement_Types[Random.Range(0, 2)];
             if(ghost.movement_Type == Ghost.movement_type.WAVE)

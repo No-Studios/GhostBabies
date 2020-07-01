@@ -10,7 +10,10 @@ public class AimController : MonoBehaviour
 
     public GameObject baby;
 
-    public Score scoreTracker; 
+    public Score scoreTracker;
+
+    [SerializeField]
+    GhostSpanwer gs; 
     
     // Start is called before the first frame update
     void Start()
@@ -49,7 +52,7 @@ public class AimController : MonoBehaviour
     {
 
         
-        Instantiate(baby, hit.transform.position, Quaternion.identity);
+        Instantiate(GameManager.instance.BabyPrefabs[gs.randomGhost], hit.transform.position, Quaternion.identity);
 
        
     }
