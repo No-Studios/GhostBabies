@@ -15,6 +15,7 @@ public class GhostSpanwer : MonoBehaviour
     //int score2 = Scoring.score;
     bool isSpawning = true;
     public GameObject[] enemies;
+    public Ghost.movement_type[] movement_Types = { Ghost.movement_type.NORMAL, Ghost.movement_type.WAVE };
     int enemyIndex = 0;
 
 
@@ -30,8 +31,14 @@ public class GhostSpanwer : MonoBehaviour
 
             yield return new WaitForSeconds(seconds);
 
-            Instantiate(enemies[enemyIndex], new Vector3(Random.Range(leftBoundPos.x, rightBoundPos.x), leftBoundPos.y, 0), transform.rotation);
-
+            GameObject g = Instantiate(enemies[enemyIndex], new Vector3(Random.Range(leftBoundPos.x, rightBoundPos.x), leftBoundPos.y, 0), transform.rotation);
+            Ghost ghost = g.GetComponent<Ghost>();
+            ghost.movement_Type = movement_Types[Random.Range(0, 2)];
+            if(ghost.movement_Type == Ghost.movement_type.WAVE)
+            {
+                ghost.RandomizeWave();
+            }
+                
         }
     }
     // Start is called before the first frame update

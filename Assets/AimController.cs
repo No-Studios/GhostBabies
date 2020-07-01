@@ -9,6 +9,8 @@ public class AimController : MonoBehaviour
     RaycastHit2D hitData;
 
     public GameObject baby;
+
+    public Score scoreTracker; 
     
     // Start is called before the first frame update
     void Start()
@@ -30,10 +32,12 @@ public class AimController : MonoBehaviour
             if (hit.collider != null)
             {
                 Debug.Log(hit.collider.gameObject.name);
-                if(hit.collider.tag == "Ghost")
+                if(hit.collider.tag == "Ghost") // If ghost hit
                 {
                     spawnBaby(hit);
                     Destroy(hit.collider.gameObject);
+                    scoreTracker.IncrementScore(); 
+
                 }
                 //hit.collider.attachedRigidbody.AddForce(Vector2.up);
             }

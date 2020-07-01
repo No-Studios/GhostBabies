@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1734421331044259664}
   - component: {fileID: 8019564343606812628}
   - component: {fileID: 4770159171608852175}
+  - component: {fileID: 1038634977748773335}
   m_Layer: 0
   m_Name: TempGhost
   m_TagString: Ghost
@@ -122,3 +123,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  sc: {fileID: 0}
+  movement_Type: 0
+  frequency: 20
+  magnitude: 0.5
+--- !u!50 &1038634977748773335
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131554492853620085}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
